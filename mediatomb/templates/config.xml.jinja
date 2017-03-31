@@ -63,7 +63,7 @@
       </virtual-layout>
     </scripting>
     <autoscan use-inotify="auto">
-      {%- for share, params in share.items() %}
+      {%- for share, params in shares.items() %}
         {%- if params.mode|lower == 'timed' %}
       <directory location="{{params.locations}}" mode="timed" interval="{{params.interval|default('3600')}}" level="{{params.level|default('full')}}" recursive="{{params.recursive|default('yes')}}" hidden-files="no"/>
         {%- else %}
