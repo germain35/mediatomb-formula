@@ -65,9 +65,9 @@
     <autoscan use-inotify="auto">
       {%- for share, params in shares.items() %}
         {%- if params.mode|lower == 'timed' %}
-      <directory location="{{params.locations}}" mode="timed" interval="{{params.interval|default('3600')}}" level="{{params.level|default('full')}}" recursive="{{params.recursive|default('yes')}}" hidden-files="no"/>
+      <directory location="{{params.location}}" mode="timed" interval="{{params.interval|default('3600')}}" level="{{params.level|default('full')}}" recursive="{{params.recursive|default('yes')}}" hidden-files="no"/>
         {%- else %}
-      <directory location="{{params.locations}}" mode="inotify" level="{{params.level|default('full')}}" recursive="{{params.recursive|default('yes')}}" hidden-files="no"/>  
+      <directory location="{{params.location}}" mode="inotify" level="{{params.level|default('full')}}" recursive="{{params.recursive|default('yes')}}" hidden-files="no"/>  
         {%- endif %}
       {%- endfor %}
       <!--<directory location="/media" mode="timed" interval="3600" level="full" recursive="no" hidden-files="no"/>-->
