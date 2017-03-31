@@ -6,6 +6,3 @@ mediatomb:
       interval: 3600
       level: full 
       recursive: yes
-
-
-<!--<directory location="/media" mode="timed" interval="3600" level="full" recursive="no" hidden-files="no"/>-->

@@ -7,7 +7,7 @@ include:
 mediatomb_config:
   file.managed:
     - name: {{mediatomb.config_file}}
-    - source: salt://mediatomb/config.xml.jinja
+    - source: salt://mediatomb/templates/config.xml.jinja
     - template: jinja
     - mode: 644
     - user: mediatomb
