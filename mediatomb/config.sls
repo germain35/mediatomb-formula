@@ -7,8 +7,8 @@ include:
 mediatomb_default_config:
   file.replace:
     - name: {{mediatomb.default_config_file}}
-    - pattern: '^MT_INTERFACE=.*$'
-    - repl: {{'MT_INTERFACE="' + salt['pillar.get']('mediatomb:interface', 'lo') + '"'}}
+    - pattern: '^(.*INTERFACE=).*$'
+    - repl: {{'\1"' + salt['pillar.get']('mediatomb:interface', 'lo') + '"'}}
     - append_if_not_found: True
     - bufsize: file
 
