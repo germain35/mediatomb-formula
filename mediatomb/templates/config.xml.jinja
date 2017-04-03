@@ -11,7 +11,7 @@
         <account user="mediatomb" password="mediatomb"/>
       </accounts>
     </ui>
-    <name>MediaTomb</name>
+    <name>{{salt['pillar.get']('mediatomb:name', 'mediatomb')}}</name>
     <udn>uuid:ed545064-979b-4675-8c5b-087ce71104ee</udn>
     <home>/var/lib/mediatomb</home>
     <webroot>/usr/share/mediatomb/web</webroot>
