@@ -11,7 +11,7 @@ mediatomb_default_config:
     - name: {{mediatomb.default_config_file}}
     - pattern: '^INTERFACE=.*$'
     - repl: 'INTERFACE="{{interface}}"'
-    - append_if_not_found: True
+    - append_if_not_found: False
     - bufsize: file
 
 mediatomb_config:
