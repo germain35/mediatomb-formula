@@ -1,5 +1,7 @@
 {% from "mediatomb/map.jinja" import mediatomb with context %}
 
+{% set interface = salt['pillar.get']('mediatomb:interface', 'lo') %}
+
 include:
   - mediatomb.install
   - mediatomb.service
@@ -7,8 +9,8 @@ include:
 mediatomb_default_config:
   file.replace:
     - name: {{mediatomb.default_config_file}}
-    - pattern: '^(.*INTERFACE=).*$'
-    - repl: {{'\1"' + salt['pillar.get']('mediatomb:interface', 'lo') + '"'}}
+    - pattern: '^INTERFACE=.*$'
+    - repl: '{{"INTERFACE=\"" + interface + "\""}}'
     - append_if_not_found: True
     - bufsize: file
 
