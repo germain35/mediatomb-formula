@@ -1,10 +1,12 @@
 {% set mediatomb = salt['grains.filter_by']({
     'Debian': {
         'packages': ['mediatomb'],
+        'default_config_file': '/etc/default/mediatomb',
         'config_file': '/etc/mediatomb/config.xml',
     },
     'RedHat': { 
         'packages': ['mediatomb'],
+        'default_config_file': '/etc/default/mediatomb',
         'config_file': '/etc/mediatomb/config.xml',
     },
 }, grain='os_family', merge=salt['pillar.get']('mediatomb:lookup'), default='Debian') %}

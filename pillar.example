@@ -1,9 +1,10 @@
 mediatomb:
   name: mediatomb
+  interface: eth0
   shares:
     music:
       location: /music
       mode: timed
       interval: 3600
       level: full 
-      recursive: yes
+      recursive: 'yes'
