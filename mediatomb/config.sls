@@ -10,7 +10,7 @@ mediatomb_default_config:
   file.replace:
     - name: {{mediatomb.default_config_file}}
     - pattern: '^INTERFACE=.*$'
-    - repl: '{{'INTERFACE="' ~ interface ~ '"'}}'
+    - repl: 'INTERFACE="{{interface}}"'
     - append_if_not_found: True
     - bufsize: file
 
