@@ -6,7 +6,7 @@ include:
   - mediatomb.install
   - mediatomb.service
 
-mediatomb_default_config:
+mediatomb_default_config_interface:
   file.replace:
     - name: {{mediatomb.default_config_file}}
     - pattern: 'INTERFACE=.*$'
@@ -24,6 +24,6 @@ mediatomb_config:
     - group: mediatomb
     - require:
       - sls: mediatomb.install
-      - file: mediatomb_default_config
+      - file: mediatomb_default_config_interface
     - watch_in:
        - service: mediatomb_service_reload
