@@ -1,4 +1,5 @@
 mediatomb:
+  name: mediatomb
   shares:
     music:
       location: /music
