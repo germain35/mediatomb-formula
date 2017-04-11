@@ -2,4 +2,5 @@
 
 include:
   - mediatomb.install
+  - mediatomb.config
   - mediatomb.service
