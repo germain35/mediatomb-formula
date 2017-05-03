@@ -26,4 +26,4 @@ mediatomb_config:
       - sls: mediatomb.install
       - file: mediatomb_default_config_interface
     - watch_in:
-       - service: mediatomb_service_reload
+       - service: mediatomb_service_restart
