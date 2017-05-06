@@ -1,6 +1,5 @@
 {%- set shares = salt['pillar.get']('mediatomb:shares', {}) -%}
 <?xml version="1.0" encoding="UTF-8"?>
-
 <config version="2" xmlns="http://mediatomb.cc/config/2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://mediatomb.cc/config/2 http://mediatomb.cc/config/2.xsd"><!--
      Read /usr/share/doc/mediatomb-common/README.gz section 6 for more
      information on creating and using config.xml configration files.
@@ -11,8 +10,8 @@
         <account user="mediatomb" password="mediatomb"/>
       </accounts>
     </ui>
-    <name>{{salt['pillar.get']('mediatomb:name', 'mediatomb')}}</name>
-    <udn>uuid:ed545064-979b-4675-8c5b-087ce71104ee</udn>
+    <name>{{salt['pillar.get']('mediatomb:name', 'MediaTomb')}}</name>
+    <udn>uuid:7ac6469a-8a83-467b-8417-b975f3a70347</udn>
     <home>/var/lib/mediatomb</home>
     <webroot>/usr/share/mediatomb/web</webroot>
     <storage caching="yes">
@@ -51,9 +50,6 @@
     </extended-runtime-options>
   </server>
   <import hidden-files="no">
-    <filesystem-charset>UTF-8</filesystem-charset>
-    <metadata-charset>UTF-8</metadata-charset>
-    <playlist-charset>UTF-8</playlist-charset>
     <scripting script-charset="UTF-8">
       <common-script>/usr/share/mediatomb/js/common.js</common-script>
       <playlist-script>/usr/share/mediatomb/js/playlists.js</playlist-script>
@@ -67,7 +63,7 @@
         {%- if params.mode|lower == 'timed' %}
       <directory location="{{params.location}}" mode="timed" interval="{{params.interval|default('3600')}}" level="{{params.level|default('full')}}" recursive="{{params.recursive|default('yes')}}" hidden-files="no"/>
         {%- else %}
-      <directory location="{{params.location}}" mode="inotify" level="{{params.level|default('full')}}" recursive="{{params.recursive|default('yes')}}" hidden-files="no"/>  
+      <directory location="{{params.location}}" mode="inotify" level="{{params.level|default('full')}}" recursive="{{params.recursive|default('yes')}}" hidden-files="no"/>
         {%- endif %}
       {%- endfor %}
       <!--<directory location="/media" mode="timed" interval="3600" level="full" recursive="no" hidden-files="no"/>-->
@@ -90,7 +86,6 @@
         <map from="flv" to="video/x-flv"/>
         <map from="mkv" to="video/x-matroska"/>
         <map from="mka" to="audio/x-matroska"/><!-- Uncomment the line below for PS3 divx support --><!-- <map from="avi" to="video/divx"/> --><!-- Uncomment the line below for D-Link DSM / ZyXEL DMA-1000 --><!-- <map from="avi" to="video/avi"/> -->
-        <map from="m4a" to="audio/mp4"/>
         <map from="dsf" to="audio/dsf"/>
       </extension-mimetype>
       <mimetype-upnpclass>
